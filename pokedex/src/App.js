@@ -1,5 +1,14 @@
-import react from 'react'
-import { Details } from './pages/Details/Details'
+import React from 'react'
+import DetailPokemons from './componentes/DetailPokemons'
+import Home from './componentes/Home'
+import Pokedex from './componentes/Pokedeks'
+import styled from 'styled-components'
+
+const Header = styled.div`
+background-color: red; 
+
+`
+
 
 
 function App () {
@@ -7,9 +16,9 @@ function App () {
   return (
 
     <div>
-      <h1>Pokedex</h1>
-      <p>hello world</p>
-      <Details/>
+      <Home />
+      <Pokedex />
+      <DetailPokemons/>
     </div>
    
   );
