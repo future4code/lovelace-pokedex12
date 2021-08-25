@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
+import {useHistory} from "react-router-dom"
+
 
 const Header = styled.div`
 display: flex;
@@ -65,7 +67,12 @@ color: #E35C3C;
 padding: 15px;
 `
 function DetailPokemons () {
+const history = useHistory()
 
+
+const voltarPaginaAnterior=()=>{
+  history.goBack()
+}
     return (
   
       <div>
@@ -73,7 +80,7 @@ function DetailPokemons () {
         <Header>
             <h1>Pokedex</h1>
             <ButtonPokeDex>Adicionar/Remover da Pokedex</ButtonPokeDex>
-            <ButtonPokeDex>Voltar</ButtonPokeDex>
+            <ButtonPokeDex onClick={voltarPaginaAnterior}>Voltar</ButtonPokeDex>
         </Header>
 
         <ContainerPrincipal>

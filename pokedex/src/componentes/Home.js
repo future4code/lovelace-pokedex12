@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import {useHistory} from "react-router-dom"
 
 const Header = styled.div`
 display: flex;
@@ -69,14 +70,24 @@ cursor: pointer;
 `
 
 function Home () {
+const history= useHistory()
 
+
+
+
+const irParaPokedexs=()=>{
+    history.push("/Pokedeks")
+}
+const irParaDetalhesDoPokemon=()=>{
+    history.push("/DetailsPage")
+}
     return (
   
     <div> 
 
         <Header>
             <h1>Pokedex</h1>
-            <ButtonPokeDex>Ir para Pokedexs</ButtonPokeDex>
+            <ButtonPokeDex onClick={irParaPokedexs}>Ir para Pokedexs</ButtonPokeDex>
         </Header>
 
         <ContainerPrincipal>
@@ -89,7 +100,7 @@ function Home () {
 
             <ContainerButtons>
                 <Button>Adicionar a Pokdeks</Button>
-                <Button>Ver detalhes</Button>
+                <Button OnClick={irParaDetalhesDoPokemon}>Ver detalhes</Button>
             </ContainerButtons>
 
             </CardPokemons>
