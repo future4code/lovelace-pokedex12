@@ -1,6 +1,8 @@
-import React from 'react'
+
 import styled from 'styled-components';
 import {useHistory} from "react-router-dom"
+import useRequestData from '../hooks/useRequestData';
+import CardPokemon from './Cardpokemon';
 
 const Header = styled.div`
 display: flex;
@@ -72,15 +74,23 @@ cursor: pointer;
 function Home () {
 const history= useHistory()
 
-
-
-
 const irParaPokedexs=()=>{
     history.push("/Pokedeks")
 }
-const irParaDetalhesDoPokemon=()=>{
-    history.push("/DetailsPage")
+const irParaDetalhesDoPokemon=(name)=>{
+    history.push(`/DetailPokemons/${name}`)
 }
+
+const pokemonLista= useRequestData('https://pokeapi.co/api/v2/pokemon?limit=20&offset=1',{})
+
+console.log(pokemonLista.results)
+const pokemons=pokemonLista.results?.map((poke)=>{
+    return <CardPokemon poke={poke}
+    irParaDetalhesDoPokemon={()=> irParaDetalhesDoPokemon(poke.name)}
+    />
+})
+
+
     return (
   
     <div> 
@@ -89,23 +99,11 @@ const irParaDetalhesDoPokemon=()=>{
             <h1>Pokedex</h1>
             <ButtonPokeDex onClick={irParaPokedexs}>Ir para Pokedexs</ButtonPokeDex>
         </Header>
+    <ContainerPrincipal>
+            {pokemons}
+    </ContainerPrincipal>
+     
 
-        <ContainerPrincipal>
-
-            <CardPokemons>
-
-                <ContainerImg>
-                    <p>Foto</p>
-                </ContainerImg>
-
-            <ContainerButtons>
-                <Button>Adicionar a Pokdeks</Button>
-                <Button OnClick={irParaDetalhesDoPokemon}>Ver detalhes</Button>
-            </ContainerButtons>
-
-            </CardPokemons>
-            
-        </ContainerPrincipal>
     </div>   
      
     );

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useHistory} from 'react-router-dom'
 
 const Header = styled.div`
 display: flex;
@@ -68,7 +69,16 @@ margin: 20px;
 cursor: pointer;
 `
 
+
 function Pokedex () {
+  const history=useHistory()
+
+  const voltarPaginaAnterior=()=>{
+    history.goBack()
+  }
+  const irParaDetalhesDoPokemon=()=>{
+    history.push("/DetailPokemons")
+}
 
     return (
   
@@ -76,7 +86,7 @@ function Pokedex () {
         
         <Header>
           <h1>Pokedex</h1>
-          <ButtonPokeDex>Voltar para lista de Pokemons</ButtonPokeDex>
+          <ButtonPokeDex onClick={voltarPaginaAnterior}>Voltar para lista de Pokemons</ButtonPokeDex>
         </Header>
 
         <ContainerPrincipal>
@@ -89,7 +99,7 @@ function Pokedex () {
 
             <ContainerButtons>
               <Button>Remover</Button>
-              <Button>Ver detalhes</Button>
+              <Button onClick={irParaDetalhesDoPokemon}>Ver detalhes</Button>
             </ContainerButtons>
 
             </CardPokemons>

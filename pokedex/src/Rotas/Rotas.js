@@ -1,12 +1,15 @@
-import {Switch,Route,BrowserRouter} from 'react-router-dom'
-import DetailPokemons from '../componentes/DetailPokemons.js';
 
+import {Switch,Route,BrowserRouter} from 'react-router-dom'
+
+import DetailPokemons from '../componentes/DetailPokemons.js';
 import Home from "../componentes/Home";
 import Pokedeks from '../componentes/Pokedeks.js';
 
 
 
  const Rotas= () =>{
+
+
    return(
     <BrowserRouter>
      <Switch>
@@ -19,7 +22,7 @@ import Pokedeks from '../componentes/Pokedeks.js';
         <Pokedeks/>
        </Route>
       
-       <Route exact path="/DetailsPage">
+       <Route exact path="/DetailPokemons/:nome">
          <DetailPokemons/>
        </Route>
   
