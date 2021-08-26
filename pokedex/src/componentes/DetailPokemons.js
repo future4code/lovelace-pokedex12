@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import {useHistory} from "react-router-dom"
+import {useHistory,useParams} from "react-router-dom"
+import useRequestData from '../hooks/useRequestData';
 
 
 const Header = styled.div`
@@ -68,26 +69,28 @@ padding: 15px;
 `
 function DetailPokemons () {
 const history = useHistory()
-
+const params=useParams()
 
 const voltarPaginaAnterior=()=>{
   history.goBack()
 }
+
+const detalhesPokemon= useRequestData(`https://pokeapi.co/api/v2/pokemon/${params.nome}`,{})
+console.log(detalhesPokemon)
     return (
   
       <div>
                 
         <Header>
-            <h1>Pokedex</h1>
+            <h1>Pokedex-{detalhesPokemon.name && detalhesPokemon.name}</h1>
             <ButtonPokeDex>Adicionar/Remover da Pokedex</ButtonPokeDex>
             <ButtonPokeDex onClick={voltarPaginaAnterior}>Voltar</ButtonPokeDex>
         </Header>
 
         <ContainerPrincipal>
-
             <CardPokemonsImg>
-              <Text>Foto frente</Text>
-              <Text>Foto costas</Text>
+              <Text><img src={detalhesPokemon.sprites && detalhesPokemon.sprites.front_default} alt="é um pokemon"/></Text>
+              <Text><img src={detalhesPokemon.sprites && detalhesPokemon.sprites.back_default} alt="é um pokemon"/></Text>
             </CardPokemonsImg>
 
             <CardPoderes>
