@@ -63,7 +63,7 @@ function CardPokemon(props) {
         </ContainerImg>
 
     <ContainerButtons>
-        <Button>Adicionar a Pokdeks</Button>
+        <Button onClick={() => props.addPokedex(props.poke)}>Adicionar a Pokdeks</Button>
         <Button onClick={props.irParaDetalhesDoPokemon}>Ver detalhes</Button>
     </ContainerButtons>
 

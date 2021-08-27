@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
+import CardPokemon from './Cardpokemon'
 
 const Header = styled.div`
 display: flex;
@@ -70,7 +71,7 @@ cursor: pointer;
 `
 
 
-function Pokedex () {
+function Pokedex (props) {
   const history=useHistory()
 
   const voltarPaginaAnterior=()=>{
@@ -78,6 +79,14 @@ function Pokedex () {
   }
   const irParaDetalhesDoPokemon=()=>{
     history.push("/DetailPokemons")
+}
+const mostrarPokedex= ()=>{
+  if (props.pokedex.length = 0){
+  return <p>Carrinho Vazio</p>
+  }
+  return props.pokedex.map((poke)=> {
+
+  })
 }
 
     return (

@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import {Switch,Route,BrowserRouter} from 'react-router-dom'
 
 import DetailPokemons from '../componentes/DetailPokemons.js';
@@ -8,18 +9,25 @@ import Pokedeks from '../componentes/Pokedeks.js';
 
 
  const Rotas= () =>{
+const[pokedex,setPokedex]= useState([])
 
 
+const addPokedex = (poke) =>{
+  const novoPokemon= {...poke}
+  const novoArray=[...pokedex,novoPokemon]
+  setPokedex(novoArray)
+}
+console.log(pokedex)
    return(
     <BrowserRouter>
      <Switch>
 
        <Route exact path="/">
-        <Home/>
+        <Home addPokedex={addPokedex} />
        </Route>
 
        <Route exact path="/Pokedeks">
-        <Pokedeks/>
+        <Pokedeks pokedex={pokedex} />
        </Route>
       
        <Route exact path="/DetailPokemons/:nome">

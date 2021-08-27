@@ -75,7 +75,8 @@ const TituloHeader = styled.h1`
 background-color: #649BD9;
 `
 
-function Home () {
+function Home (props) {
+
 const history= useHistory()
 
 const irParaPokedexs=()=>{
@@ -87,10 +88,11 @@ const irParaDetalhesDoPokemon=(name)=>{
 
 const pokemonLista= useRequestData('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',{})
 
-console.log(pokemonLista.results)
+
 const pokemons=pokemonLista.results?.map((poke)=>{
     return <CardPokemon poke={poke}
     irParaDetalhesDoPokemon={()=> irParaDetalhesDoPokemon(poke.name)}
+    addPokedex={props.addPokedex}
     />
 })
 
