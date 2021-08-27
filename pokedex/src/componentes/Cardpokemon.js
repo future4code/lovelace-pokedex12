@@ -5,9 +5,9 @@ import {useParams} from "react-router-dom"
 const CardPokemons = styled.div`
 border: 1px solid #649BD9; 
 box-shadow: 1px 0px 3px 0px #649BD9;
-border-radius: 5px;
+border-radius: 20px;
 width: 350px;
-height: 350px;
+height: 450px;
 margin: 35px;
 `
 const ContainerButtons = styled.div`
@@ -32,7 +32,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-color: #E35C3C;
-border-radius: 5px;
+border-radius: 20px;
 border: 1px solid #E35C3C;
 padding: 15px;
 color: white;
@@ -42,6 +42,14 @@ height: 35px;
 text-align: center;
 box-shadow: 1px 1px 3px 1px #649BD9;
 `
+const Titulos = styled.h1`
+text-align: center;
+color: #E35C3C;
+padding: 15px;
+`
+const Img =styled.img `
+width: 365px;
+`
 
 function CardPokemon(props) {
 
@@ -49,9 +57,9 @@ function CardPokemon(props) {
 
   return(
 <CardPokemons key={props.poke.name}>
-        <p>{props.poke.name}</p>
+        <Titulos>{props.poke.name}</Titulos>
         <ContainerImg>
-            <img src={detalhesPokemon.sprites && detalhesPokemon.sprites.front_default} alt="é um pokemon"/>
+            <Img src={detalhesPokemon.sprites && detalhesPokemon.sprites.front_default} alt="é um pokemon"/>
         </ContainerImg>
 
     <ContainerButtons>

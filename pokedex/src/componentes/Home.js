@@ -22,7 +22,7 @@ grid-template-columns: 1fr 1fr 1fr;
 const CardPokemons = styled.div`
 border: 1px solid #649BD9; 
 box-shadow: 1px 0px 3px 0px #649BD9;
-border-radius: 5px;
+border-radius: 20px;
 width: 350px;
 height: 350px;
 margin: 35px;
@@ -71,6 +71,10 @@ margin: 20px;
 cursor: pointer;
 `
 
+const TituloHeader = styled.h1`
+background-color: #649BD9;
+`
+
 function Home () {
 const history= useHistory()
 
@@ -81,7 +85,7 @@ const irParaDetalhesDoPokemon=(name)=>{
     history.push(`/DetailPokemons/${name}`)
 }
 
-const pokemonLista= useRequestData('https://pokeapi.co/api/v2/pokemon?limit=20&offset=1',{})
+const pokemonLista= useRequestData('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',{})
 
 console.log(pokemonLista.results)
 const pokemons=pokemonLista.results?.map((poke)=>{

@@ -20,7 +20,7 @@ grid-template-columns: 1fr 1fr 1fr;
 const CardPokemons = styled.div`
 border: 1px solid #649BD9; 
 box-shadow: 1px 0px 3px 0px #649BD9;
-border-radius: 5px;
+border-radius: 20px;
 width: 350px;
 height: 350px;
 margin: 35px;
@@ -50,7 +50,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 background-color: #E35C3C;
-border-radius: 5px;
+border-radius: 20px;
 border: 1px solid #E35C3C;
 padding: 15px;
 color: white;
