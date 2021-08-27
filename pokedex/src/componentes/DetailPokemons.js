@@ -37,7 +37,6 @@ align-items: center;
 justify-content: center;
 text-align: center;
 `
-
 const CardPokemonsImg = styled.div`
 border: 1px solid #649BD9; 
 box-shadow: 1px 0px 3px 0px #649BD9;
@@ -49,7 +48,6 @@ margin: 35px;
 align-items: center;
 justify-content: center;
 `
-
 const ButtonPokeDex = styled.div`
 background-color: #649BD9;
 border-bottom: 3px solid #E35C3C;
@@ -67,11 +65,12 @@ text-align: center;
 color: #E35C3C;
 padding: 15px;
 `
-
 const Img = styled.img `
 width: 200px;
 `
+
 function DetailPokemons () {
+
 const history = useHistory()
 const params=useParams()
 
@@ -80,7 +79,6 @@ const voltarPaginaAnterior=()=>{
 }
 
 const detalhesPokemon= useRequestData(`https://pokeapi.co/api/v2/pokemon/${params.nome}`,{})
-console.log('aqui', detalhesPokemon)
 
 const statsHp = detalhesPokemon.stats && detalhesPokemon.stats[0]
 const statsAtk = detalhesPokemon.stats && detalhesPokemon.stats[1] 
@@ -104,9 +102,8 @@ const type2 = detalhesPokemon.types && detalhesPokemon.types[1]
       <div>
                 
         <Header>
-            <h1>{detalhesPokemon.name && detalhesPokemon.name}</h1>
-            <ButtonPokeDex>Adicionar/Remover da Pokedex</ButtonPokeDex>
-            <ButtonPokeDex onClick={voltarPaginaAnterior}>Voltar</ButtonPokeDex>
+          <h1>{detalhesPokemon.name && detalhesPokemon.name}</h1>
+          <ButtonPokeDex onClick={voltarPaginaAnterior}>Voltar</ButtonPokeDex>
         </Header>
 
         <ContainerPrincipal>

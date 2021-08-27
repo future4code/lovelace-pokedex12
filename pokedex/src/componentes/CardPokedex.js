@@ -64,7 +64,7 @@ function CardPokedex(props) {
         </ContainerImg>
 
     <ContainerButtons>
-        <Button>Remover</Button>
+        <Button onClick={() => props.removePokedex (props.poke)}>Remover</Button>
         <Button onClick={props.irParaDetalhesDoPokemon}>Ver detalhes</Button>
     </ContainerButtons>
 

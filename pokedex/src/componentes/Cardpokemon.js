@@ -1,7 +1,5 @@
 import styled from "styled-components"
 import useRequestData from "../hooks/useRequestData"
-import {useParams} from "react-router-dom"
-import { useHistory } from "react-router"
 
 const CardPokemons = styled.div`
 border: 1px solid #649BD9; 
@@ -58,7 +56,8 @@ function CardPokemon(props) {
   const detalhesPokemon= useRequestData(`https://pokeapi.co/api/v2/pokemon/${props.poke.name}`,{})
 
   return(
-<CardPokemons key={props.poke.name}>
+    
+    <CardPokemons key={props.poke.name}>
         <Titulos>{props.poke.name}</Titulos>
         <ContainerImg>
             <Img src={detalhesPokemon.sprites && detalhesPokemon.sprites.front_default} alt="é um pokemon"/>
