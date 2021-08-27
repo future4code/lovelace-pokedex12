@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useHistory} from 'react-router-dom'
-import CardPokemon from './Cardpokemon'
+import CardPokedex from './CardPokedex'
 
 const Header = styled.div`
 display: flex;
@@ -72,22 +72,20 @@ cursor: pointer;
 
 
 function Pokedex (props) {
+
   const history=useHistory()
 
   const voltarPaginaAnterior=()=>{
     history.goBack()
   }
-  const irParaDetalhesDoPokemon=()=>{
-    history.push("/DetailPokemons")
-}
-const mostrarPokedex= ()=>{
-  if (props.pokedex.length = 0){
-  return <p>Carrinho Vazio</p>
+  const irParaDetalhesDoPokemon=(name)=>{
+    history.push(`/DetailPokemons/${name}`)
   }
-  return props.pokedex.map((poke)=> {
+  
 
+  const mostrarNaPokedex = props.pokedex.map ((poke) => {
+    return <CardPokedex poke={poke} irParaDetalhesDoPokemon={() => irParaDetalhesDoPokemon(poke.name)}/>
   })
-}
 
     return (
   
@@ -100,18 +98,7 @@ const mostrarPokedex= ()=>{
 
         <ContainerPrincipal>
 
-            <CardPokemons>
-
-              <ContainerImg>
-                <p>Foto</p>
-              </ContainerImg>
-
-            <ContainerButtons>
-              <Button>Remover</Button>
-              <Button onClick={irParaDetalhesDoPokemon}>Ver detalhes</Button>
-            </ContainerButtons>
-
-            </CardPokemons>
+          {mostrarNaPokedex}
                     
         </ContainerPrincipal>
 

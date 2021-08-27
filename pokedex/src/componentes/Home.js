@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {useHistory} from "react-router-dom"
 import useRequestData from '../hooks/useRequestData';
 import CardPokemon from './Cardpokemon';
+import CardPokedex from './CardPokedex';
 
 const Header = styled.div`
 display: flex;
@@ -95,7 +96,6 @@ const pokemons=pokemonLista.results?.map((poke)=>{
     addPokedex={props.addPokedex}
     />
 })
-
 
     return (
   

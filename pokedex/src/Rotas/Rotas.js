@@ -17,6 +17,7 @@ const addPokedex = (poke) =>{
   const novoArray=[...pokedex,novoPokemon]
   setPokedex(novoArray)
 }
+
 console.log(pokedex)
    return(
     <BrowserRouter>
