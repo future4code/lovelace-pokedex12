@@ -1,16 +1,11 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Guilherme Augusto de Almeida Amaral
+- Doglas viegas de menezes
 
-Link do Surge: www.link.com.br
+Link do Surge:http://truthful-sponge.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+-Tods os botôes e telas 
 
-O que não funciona: 
-- Item 3
-- Item 4
